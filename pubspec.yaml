@@ -1,6 +1,6 @@
 name: mpcheckout
-description: A new flutter plugin project.
-version: 0.0.2
+description: An unofficial package of MercadoPago Mobile Checkout.
+version: 0.0.3
 repository: https://github.com/Gonzaa25/mpcheckout
 
 environment:
