@@ -1,3 +1,7 @@
+## 0.0.4
+
+* Items class now is Item.
+* Update example app.
 ## 0.0.3
 
 * Update pubspect description.
