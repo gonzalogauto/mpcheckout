@@ -11,7 +11,7 @@ Preference _$PreferenceFromJson(Map<String, dynamic> json) {
     additionalInfo: json['additional_info'] as String?,
     externalReference: json['external_reference'] as String?,
     items: (json['items'] as List<dynamic>)
-        .map((e) => Items.fromJson(e as Map<String, dynamic>))
+        .map((e) => Item.fromJson(e as Map<String, dynamic>))
         .toList(),
     paymentMethods: json['payment_methods'] == null
         ? null

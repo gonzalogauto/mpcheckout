@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'items.dart';
+part of 'item.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Items _$ItemsFromJson(Map<String, dynamic> json) {
-  return Items(
+Item _$ItemFromJson(Map<String, dynamic> json) {
+  return Item(
     title: json['title'] as String?,
     description: json['description'] as String?,
     pictureUrl: json['pictureUrl'] as String?,
@@ -18,7 +18,7 @@ Items _$ItemsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ItemsToJson(Items instance) => <String, dynamic>{
+Map<String, dynamic> _$ItemToJson(Item instance) => <String, dynamic>{
       'title': instance.title,
       'description': instance.description,
       'pictureUrl': instance.pictureUrl,

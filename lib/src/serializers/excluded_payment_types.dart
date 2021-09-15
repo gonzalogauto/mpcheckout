@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mpcheckout/src/serializers/items.dart';
+import 'package:mpcheckout/src/serializers/item.dart';
 import 'package:mpcheckout/src/serializers/payer.dart';
 import 'package:mpcheckout/src/serializers/shipments.dart';
 

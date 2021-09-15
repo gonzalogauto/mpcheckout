@@ -4,7 +4,7 @@ import 'package:mpcheckout/mpcheckout.dart';
 import 'main.dart';
 
 class CartScreen extends StatefulWidget {
-  final List<Items> items;
+  final List<Item> items;
   const CartScreen({Key? key, required this.items}) : super(key: key);
 
   @override

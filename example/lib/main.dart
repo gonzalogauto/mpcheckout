@@ -20,8 +20,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final List<Items> items = [
-    Items(title: 'Articulo de prueba 1', quantity: 1, unitPrice: 150),
+  final List<Item> items = [
+    Item(title: 'Articulo de prueba 1', quantity: 1, unitPrice: 150),
   ];
 
   @override
@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            items.add(Items(
+            items.add(Item(
                 title: 'Articulo de prueba ${items.length + 1}',
                 quantity: 1,
                 unitPrice: Random().nextInt(350)));

@@ -1,7 +1,7 @@
 library mpcheckout;
 
 export 'src/serializers/preference.dart';
-export 'src/serializers/items.dart';
+export 'src/serializers/item.dart';
 export 'src/serializers/payer.dart';
 export 'src/serializers/shipments.dart';
 export 'src/serializers/payment_methods.dart';

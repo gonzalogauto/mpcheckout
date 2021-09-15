@@ -1,9 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:mpcheckout/src/serializers/excluded_payment_methods.dart';
 import 'package:mpcheckout/src/serializers/excluded_payment_types.dart';
-import 'package:mpcheckout/src/serializers/items.dart';
-import 'package:mpcheckout/src/serializers/payer.dart';
-import 'package:mpcheckout/src/serializers/shipments.dart';
 
 part 'payment_methods.g.dart';
 

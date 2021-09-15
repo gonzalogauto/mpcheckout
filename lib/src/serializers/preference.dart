@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mpcheckout/src/serializers/items.dart';
+import 'package:mpcheckout/src/serializers/item.dart';
 import 'package:mpcheckout/src/serializers/payer.dart';
 import 'package:mpcheckout/src/serializers/payment_methods.dart';
 import 'package:mpcheckout/src/serializers/shipments.dart';
@@ -21,7 +21,7 @@ class Preference {
   String? additionalInfo;
   @JsonKey(name: 'external_reference')
   String? externalReference;
-  List<Items> items;
+  List<Item> items;
   @JsonKey(name: 'payment_methods')
   PaymentMethods? paymentMethods;
   @JsonKey(name: 'notification_url')
