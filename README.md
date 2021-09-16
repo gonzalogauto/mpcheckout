@@ -1,7 +1,9 @@
 # mpcheckout
-[![pub package](https://img.shields.io/pub/v/arg_dni_validator.svg)](https://pub.dev/packages/arg_dni_validator) [![Donate Paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/ggauto25)
+[![pub package](https://img.shields.io/pub/v/arg_dni_validator.svg)](https://pub.dev/packages/arg_dni_validator)
 
 An unofficial package of MercadoPago Mobile Checkout.
+
+<a href='https://cafecito.app/ggauto' rel='noopener' target='_blank'><img srcset='https://cdn.cafecito.app/imgs/buttons/button_5.png 1x, https://cdn.cafecito.app/imgs/buttons/button_5_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_5_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_5.png' alt='Invitame un café en cafecito.app' /></a>
 
 ## Requirements
 
