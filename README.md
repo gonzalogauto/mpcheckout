@@ -54,25 +54,40 @@ First you need to initialize credentials
 ```dart
 /// initialize credentials
   mp = Mpcheckout.initialize(
-      clientID: 'clientID', publicKey: 'publicKey', accesToken: 'accesToken');
+      clientID: 'clientID', 
+      publicKey: 'publicKey', 
+      accesToken: 'accesToken',
+  );
   runApp(MaterialApp(home: MyApp()));
 ```
 
 Then create a preference
 ```dart
 final Preference _pref = Preference(
-                statementDescriptor: 'statementDescriptor',
-                additionalInfo: 'additionalInfo',
-                items: [
-                  Items(title: 'Test',quantity: 1, unitPrice: 120)
-                ],
-                paymentMethods: PaymentMethods(excludedPaymentTypes: [
-                  ExcludedPaymentTypes(id: 'ticket'),
-                  ExcludedPaymentTypes(id: 'atm'),
-                ]),
-                payer: Payer(email: 'test@test.com'),
-                shipments: Shipments(
-                    mode: 'not_specified', freeShipping: false, cost: 350));
+  statementDescriptor: 'statementDescriptor',
+  additionalInfo: 'additionalInfo',
+  items: [
+    Items(
+    title: 'Test',
+    quantity: 1, 
+    unitPrice: 120,
+    ),
+  ],
+  paymentMethods: PaymentMethods(
+    excludedPaymentTypes: [
+      ExcludedPaymentTypes(id: 'ticket'),
+      ExcludedPaymentTypes(id: 'atm'),
+    ],
+  ),
+  payer: Payer(
+    email: 'test@test.com',
+  ),
+  shipments: Shipments(
+      mode: 'not_specified', 
+      freeShipping: false, 
+      cost: 350,
+      ),
+);
 ```
 
 Finally start the checkout
