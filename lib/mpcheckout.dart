@@ -1,38 +1,46 @@
 library mpcheckout;
 
-export 'src/serializers/preference.dart';
-export 'src/serializers/item.dart';
-export 'src/serializers/payer.dart';
-export 'src/serializers/shipments.dart';
-export 'src/serializers/payment_methods.dart';
-export 'src/serializers/excluded_payment_methods.dart';
-export 'src/serializers/excluded_payment_types.dart';
-export 'src/mp_exception.dart';
-
 import 'dart:async';
 import 'dart:convert';
-import 'package:http/http.dart' as http;
+
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+import 'package:mpcheckout/src/models/preference/preference.dart';
 
 import 'src/models/checkout_result.dart';
 import 'src/mp_exception.dart';
-import 'src/serializers/preference.dart';
+
+export 'src/models/excluded-payment-methods/excluded_payment_methods.dart';
+export 'src/models/excluded-payment-types/excluded_payment_types.dart';
+export 'src/models/item/item.dart';
+export 'src/models/payer/payer.dart';
+export 'src/models/payment-methods/payment_methods.dart';
+export 'src/models/preference/preference.dart';
+export 'src/models/shipment/shipments.dart';
+export 'src/mp_exception.dart';
+export 'src/mp_exception.dart';
 
 class Mpcheckout {
   late String _clientID;
   late String _publicKey;
   late String _accesToken;
+
   Mpcheckout._(
     this._clientID,
     this._publicKey,
     this._accesToken,
   );
+
   factory Mpcheckout.initialize({
     required String clientID,
     required String publicKey,
     required String accesToken,
   }) =>
-      Mpcheckout._(clientID, publicKey, accesToken);
+      Mpcheckout._(
+        clientID,
+        publicKey,
+        accesToken,
+      );
 
   static const MethodChannel _channel = const MethodChannel('mpcheckout');
   static String _apiUrl = 'https://api.mercadopago.com';
@@ -68,7 +76,8 @@ class Mpcheckout {
     if (response.statusCode != 200 && response.statusCode != 201) {
       final message = json.decode(response.body)['message'];
       throw MpException(
-          message: 'Ha ocurrido un error al crear la preferencia: $message');
+        message: 'Ha ocurrido un error al crear la preferencia: $message',
+      );
     }
     final preference = json.decode(response.body);
     Map<String, dynamic>? result =
@@ -79,6 +88,9 @@ class Mpcheckout {
         "preferenceId": preference['id'],
       },
     ));
-    return CheckoutResult.fromMap(data: result!);
+
+    return CheckoutResult.fromMap(
+      data: result!,
+    );
   }
 }

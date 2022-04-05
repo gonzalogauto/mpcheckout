@@ -1,17 +1,19 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mpcheckout/src/serializers/excluded_payment_methods.dart';
-import 'package:mpcheckout/src/serializers/excluded_payment_types.dart';
+import 'package:mpcheckout/src/models/excluded-payment-methods/excluded_payment_methods.dart';
+import 'package:mpcheckout/src/models/excluded-payment-types/excluded_payment_types.dart';
 
 part 'payment_methods.g.dart';
 
 @JsonSerializable()
 class PaymentMethods {
-  PaymentMethods(
-      {this.excludedPaymentMethods,
-      this.excludedPaymentTypes,
-      this.defaultPaymentMethodId,
-      this.installments,
-      this.defaultInstallments});
+  PaymentMethods({
+    this.excludedPaymentMethods,
+    this.excludedPaymentTypes,
+    this.defaultPaymentMethodId,
+    this.installments,
+    this.defaultInstallments,
+  });
+
   @JsonKey(name: 'excluded_payment_methods')
   List<ExcludedPaymentMethods>? excludedPaymentMethods;
   @JsonKey(name: 'excluded_payment_types')

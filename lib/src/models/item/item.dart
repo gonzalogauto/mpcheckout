@@ -4,14 +4,15 @@ part 'item.g.dart';
 
 @JsonSerializable()
 class Item {
-  Item(
-      {this.title,
-      this.description,
-      this.pictureUrl,
-      this.categoryId,
-      required this.quantity,
-      this.currencyId,
-      required this.unitPrice});
+  Item({
+    this.title,
+    this.description,
+    this.pictureUrl,
+    this.categoryId,
+    required this.quantity,
+    this.currencyId,
+    required this.unitPrice,
+  });
 
   String? title;
   String? description;
