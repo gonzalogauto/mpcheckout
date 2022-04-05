@@ -1,5 +1,5 @@
 # mpcheckout
-[![pub package](https://img.shields.io/pub/v/arg_dni_validator.svg)](https://pub.dev/packages/arg_dni_validator)
+[![pub package](https://img.shields.io/pub/v/mpcheckout.svg)](https://pub.dev/packages/mpcheckout)
 
 An unofficial package of MercadoPago Mobile Checkout.
 
