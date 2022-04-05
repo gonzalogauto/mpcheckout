@@ -1,4 +1,7 @@
 class MpException implements Exception {
-  String message;
-  MpException({required this.message});
+  MpException({
+    required this.message,
+  });
+
+  final String message;
 }

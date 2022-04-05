@@ -4,7 +4,12 @@ part 'payer.g.dart';
 
 @JsonSerializable()
 class Payer {
-  Payer({this.name, this.surname, required this.email, this.dateCreated});
+  Payer({
+    this.name,
+    this.surname,
+    required this.email,
+    this.dateCreated,
+  });
 
   String? name;
   String? surname;
