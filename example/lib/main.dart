@@ -2,7 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:mpcheckout/mpcheckout.dart';
-import 'package:mpcheckout_example/cart.dart';
+
+import 'cart.dart';
 
 // Make it global
 late Mpcheckout mp;
