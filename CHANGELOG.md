@@ -1,5 +1,8 @@
 ## 0.0.5
 
+* Update dependencies to latest version.
+## 0.0.5
+
 * Code refactor.
 ## 0.0.4
 
