@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mpcheckout/mpcheckout.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('mpcheckout');
+  const channel = MethodChannel('mpcheckout');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 

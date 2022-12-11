@@ -1,4 +1,18 @@
+// ignore_for_file: public_member_api_docs
+/// [CheckoutResult] class
 class CheckoutResult {
+  /// [CheckoutResult] gets the result of the operation using the sdk
+  CheckoutResult({
+    this.result,
+    this.id,
+    this.status,
+    this.statusDetail,
+    this.paymentMethodId,
+    this.paymentTypeId,
+    this.operationType,
+    this.transactionAmount,
+  });
+
   /// result can be 'done' or 'canceled'.
   String? result;
   int? id;
@@ -10,16 +24,6 @@ class CheckoutResult {
   String? paymentTypeId;
   String? operationType;
   String? transactionAmount;
-
-  CheckoutResult(
-      {this.result,
-      this.id,
-      this.status,
-      this.statusDetail,
-      this.paymentMethodId,
-      this.paymentTypeId,
-      this.operationType,
-      this.transactionAmount});
 
   factory CheckoutResult.fromMap({required Map<String, dynamic> data}) {
     return CheckoutResult(

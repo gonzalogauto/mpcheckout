@@ -1,11 +1,14 @@
+// ignore_for_file: public_member_api_docs
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mpcheckout/src/models/excluded-payment-methods/excluded_payment_methods.dart';
-import 'package:mpcheckout/src/models/excluded-payment-types/excluded_payment_types.dart';
+import 'package:mpcheckout/src/models/excluded_payment_methods/excluded_payment_methods.dart';
+import 'package:mpcheckout/src/models/excluded_payment_types/excluded_payment_types.dart';
 
 part 'payment_methods.g.dart';
 
 @JsonSerializable()
 class PaymentMethods {
+  factory PaymentMethods.fromJson(Map<String, dynamic> json) =>
+      _$PaymentMethodsFromJson(json);
   PaymentMethods({
     this.excludedPaymentMethods,
     this.excludedPaymentTypes,
@@ -24,9 +27,6 @@ class PaymentMethods {
   num? installments;
   @JsonKey(name: 'default_installments')
   num? defaultInstallments;
-
-  factory PaymentMethods.fromJson(Map<String, dynamic> json) =>
-      _$PaymentMethodsFromJson(json);
 
   Map<String, dynamic> toJson() => _$PaymentMethodsToJson(this);
 }

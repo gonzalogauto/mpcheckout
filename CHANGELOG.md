@@ -1,3 +1,10 @@
+## 0.0.7
+
+* Update dependencies to latest version.
+* Export models.
+* Move implementation to src folder.
+* Add more documentation.
+
 ## 0.0.6
 
 * Update dependencies to latest version.

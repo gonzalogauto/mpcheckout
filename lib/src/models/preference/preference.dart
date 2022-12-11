@@ -1,7 +1,8 @@
+// ignore_for_file: public_member_api_docs
 import 'package:json_annotation/json_annotation.dart';
 import 'package:mpcheckout/src/models/item/item.dart';
 import 'package:mpcheckout/src/models/payer/payer.dart';
-import 'package:mpcheckout/src/models/payment-methods/payment_methods.dart';
+import 'package:mpcheckout/src/models/payment_methods/payment_methods.dart';
 import 'package:mpcheckout/src/models/shipment/shipments.dart';
 
 part 'preference.g.dart';

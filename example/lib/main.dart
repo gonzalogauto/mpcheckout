@@ -5,13 +5,16 @@ import 'package:mpcheckout/mpcheckout.dart';
 
 import 'cart.dart';
 
-// Make it global
+/// [mp] instance (make it global)
 late Mpcheckout mp;
 
 void main() {
   /// initialize credentials
   mp = Mpcheckout.initialize(
-      clientID: 'clientID', publicKey: 'publicKey', accesToken: 'accesToken');
+    clientID: 'clientID',
+    publicKey: 'publicKey',
+    accesToken: 'accesToken',
+  );
   runApp(MaterialApp(home: MyApp()));
 }
 
