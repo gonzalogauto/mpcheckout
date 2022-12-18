@@ -1,24 +1,19 @@
-// ignore_for_file: public_member_api_docs
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:json_annotation/json_annotation.dart';
-
+part 'shipments.freezed.dart';
 part 'shipments.g.dart';
 
-@JsonSerializable()
-class Shipments {
-  Shipments({
-    this.mode,
-    this.freeShipping,
-    this.cost,
-  });
+/// [Shipments] class
+@freezed
+class Shipments with _$Shipments {
+  /// [Shipments] that holds information about the Shipment
+  factory Shipments({
+    String? mode,
+    bool? freeShipping,
+    num? cost,
+  }) = _Shipments;
 
-  String? mode;
-  @JsonKey(name: 'free_shipping')
-  bool? freeShipping;
-  num? cost;
-
+  /// factory fromJson that creates an instance of [Shipments]
   factory Shipments.fromJson(Map<String, dynamic> json) =>
       _$ShipmentsFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ShipmentsToJson(this);
 }
