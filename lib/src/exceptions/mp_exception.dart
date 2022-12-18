@@ -1,11 +1,19 @@
-/// [MpException] class
-class MpException implements Exception {
-  /// [MpException] is a custom implementation of [Exception] that can be used
-  /// to catch any errors of this service
-  MpException({
-    required this.message,
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  /// MpException [message]
-  final String message;
+part 'mp_exception.freezed.dart';
+
+/// [MpException] is a custom implementation of [Exception] that can be used
+/// to catch any errors of this service
+@freezed
+class MpException with _$MpException implements Exception {
+  /// [MpException.preference] exception type
+  factory MpException.preference({
+    required String message,
+  }) = _PreferenceError;
+
+  /// [MpException.unknown] exception type
+  factory MpException.unknown({
+    Object? exception,
+    required StackTrace stackTrace,
+  }) = _UnknownError;
 }

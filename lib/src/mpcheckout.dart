@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:mpcheckout/src/exceptions/mp_exception.dart';
 import 'package:mpcheckout/src/models/models.dart';
+import 'package:mpcheckout/src/models/preference_response/preference_response.dart';
 
 /// [Mpcheckout] class
 class Mpcheckout {
@@ -54,35 +55,44 @@ class Mpcheckout {
   Future<CheckoutResult> startCheckout(
     Preference pref,
   ) async {
-    final url = Uri.parse('$_apiUrl/checkout/preferences');
-    final headers = {
-      'access_token': accesToken,
-      'Accept': 'application/json',
-      'Content-type': 'application/json',
-      'Authorization': 'Bearer $accesToken',
-    };
-    final body = json.encode(pref.toJson());
+    try {
+      final url = Uri.parse('$_apiUrl/checkout/preferences');
 
-    final response = await http.post(url, headers: headers, body: body);
+      final headers = {
+        'access_token': accesToken,
+        'Accept': 'application/json',
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer $accesToken',
+      };
 
-    ///Handle response with errors
-    if (response.statusCode != 200 && response.statusCode != 201) {
-      final message = json.decode(response.body)['message'];
-      throw MpException(
-        message: 'Ha ocurrido un error al crear la preferencia: $message',
+      final body = json.encode(pref.toJson());
+
+      final response = await http.post(url, headers: headers, body: body);
+      final responseBody = json.decode(response.body) as Map<String, dynamic>;
+
+      ///Handle response with errors
+      if (response.statusCode != 200 && response.statusCode != 201) {
+        final message = response.reasonPhrase;
+        throw MpException.preference(
+          message: 'Ha ocurrido un error al crear la preferencia: $message',
+        );
+      }
+
+      final preferenceResponse = PreferenceResponse.fromJson(responseBody);
+      final result = await _channel.invokeMapMethod<String, dynamic>(
+        'startCheckout',
+        {
+          'publicKey': publicKey,
+          'preferenceId': preferenceResponse.id,
+        },
+      );
+      if (result == null) throw Exception('startCheckout result is null');
+      return CheckoutResult.fromMap(data: result);
+    } catch (exception, stackTrace) {
+      throw MpException.unknown(
+        exception: exception,
+        stackTrace: stackTrace,
       );
     }
-    final preference = json.decode(response.body);
-    final result = await _channel.invokeMapMethod<String, dynamic>(
-      'startCheckout',
-      {
-        'publicKey': publicKey,
-        'preferenceId': preference['id'],
-      },
-    );
-
-    return CheckoutResult.fromMap(
-      data: result!,
-    );
   }
 }

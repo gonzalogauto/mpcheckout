@@ -11,9 +11,9 @@ late Mpcheckout mp;
 void main() {
   /// initialize credentials
   mp = Mpcheckout.initialize(
-    clientID: 'clientID',
-    publicKey: 'publicKey',
-    accesToken: 'accesToken',
+    clientID: const String.fromEnvironment("CLIENT_ID"),
+    publicKey: const String.fromEnvironment("PUBLIC_KEY"),
+    accesToken: const String.fromEnvironment("ACCESS_TOKEN"),
   );
   runApp(MaterialApp(home: MyApp()));
 }

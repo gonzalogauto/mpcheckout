@@ -49,12 +49,15 @@ class _CartScreenState extends State<CartScreen> {
         );
       }
     } on MpException catch (error) {
-      print(error.message);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(error.message),
-          backgroundColor: Colors.red,
-        ),
+      error.whenOrNull(
+        preference: (errorMessage) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(errorMessage),
+              backgroundColor: Colors.red,
+            ),
+          );
+        },
       );
     }
   }

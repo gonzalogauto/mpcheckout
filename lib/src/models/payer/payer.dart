@@ -1,23 +1,17 @@
 // ignore_for_file: public_member_api_docs
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'payer.freezed.dart';
 part 'payer.g.dart';
 
-@JsonSerializable()
-class Payer {
-  Payer({
-    this.name,
-    this.surname,
-    required this.email,
-    this.dateCreated,
-  });
-
-  String? name;
-  String? surname;
-  String email;
-  String? dateCreated;
+@freezed
+class Payer with _$Payer {
+  factory Payer({
+    String? name,
+    String? surname,
+    required String email,
+    String? dateCreated,
+  }) = _Payer;
 
   factory Payer.fromJson(Map<String, dynamic> json) => _$PayerFromJson(json);
-
-  Map<String, dynamic> toJson() => _$PayerToJson(this);
 }
