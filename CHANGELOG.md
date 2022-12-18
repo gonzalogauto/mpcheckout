@@ -1,3 +1,8 @@
+## 0.0.8
+- upgrade android configuration in the example
+- migrate models to freezed.
+- use String.fromEnviroment in the example
+- migrate MpException to freezed with subtypes
 ## 0.0.7
 
 * Update dependencies to latest version.
