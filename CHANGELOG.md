@@ -1,3 +1,5 @@
+## 0.1.0
+- update: app example update
 ## 0.0.9
 - fix: (ios) value cast error while doing checkout
 ## 0.0.8
