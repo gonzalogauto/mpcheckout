@@ -1,3 +1,5 @@
+## 0.0.9
+- fix: (ios) value cast error while doing checkout
 ## 0.0.8
 - upgrade android configuration in the example
 - migrate models to freezed.

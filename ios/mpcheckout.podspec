@@ -14,6 +14,11 @@ A new flutter plugin project.
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
+  s.dependency 'MercadoPagoSDK', '~> 4.32.4'
+  # See https://github.com/mercadopago/px-ios/issues/2386
+  s.dependency 'MLCardForm', '0.9.1'
+  s.dependency 'MLCardDrawer', '1.5.1'
+  s.dependency 'MLBusinessComponents', '1.29.0'
   s.dependency 'Flutter'
   s.platform = :ios, '8.0'
 
