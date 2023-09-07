@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
@@ -56,6 +57,9 @@ class Mpcheckout {
     Preference pref,
   ) async {
     try {
+      if (Platform.isIOS) {
+        throw Exception('IOS platform is not supported by this package');
+      }
       final url = Uri.parse('$_apiUrl/checkout/preferences');
 
       final headers = {
@@ -88,6 +92,8 @@ class Mpcheckout {
       );
       if (result == null) throw Exception('startCheckout result is null');
       return CheckoutResult.fromJson(result);
+    } on Exception {
+      rethrow;
     } catch (exception, stackTrace) {
       throw MpException.unknown(
         exception: exception,
