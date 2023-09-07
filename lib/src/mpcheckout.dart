@@ -58,7 +58,9 @@ class Mpcheckout {
   ) async {
     try {
       if (Platform.isIOS) {
-        throw Exception('IOS platform is not supported by this package');
+        throw Exception(
+          'IOS platform is not supported by this package see https://github.com/gonzalogauto/mpcheckout/issues/17',
+        );
       }
       final url = Uri.parse('$_apiUrl/checkout/preferences');
 
