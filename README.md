@@ -1,5 +1,6 @@
 # mpcheckout
 [![pub package](https://img.shields.io/pub/v/mpcheckout.svg)](https://pub.dev/packages/mpcheckout)
+[![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
 An unofficial package of MercadoPago Mobile Checkout.
 

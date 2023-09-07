@@ -45,8 +45,8 @@ class Mpcheckout {
 
   /// [platformVersion] getter
   static Future<String?> get platformVersion async {
-    final version = await _channel.invokeMethod('getPlatformVersion');
-    return version as String?;
+    final version = await _channel.invokeMethod<String>('getPlatformVersion');
+    return version;
   }
 
   /// First this create a Preference in mercadopago endpoint
@@ -87,7 +87,7 @@ class Mpcheckout {
         },
       );
       if (result == null) throw Exception('startCheckout result is null');
-      return CheckoutResult.fromMap(data: result);
+      return CheckoutResult.fromJson(result);
     } catch (exception, stackTrace) {
       throw MpException.unknown(
         exception: exception,
