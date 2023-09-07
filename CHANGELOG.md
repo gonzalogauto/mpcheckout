@@ -1,4 +1,6 @@
-## 0.1.0
+## 1.1.2
+- fix: update changelog version
+## 1.1.1
 - chore: add new example screenshot and use new funding parameter
 ## 1.1.0
 
