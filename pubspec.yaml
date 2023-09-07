@@ -28,5 +28,3 @@ flutter:
       android:
         package: com.gga.dev.mpcheckout
         pluginClass: MpcheckoutPlugin
-      ios:
-        pluginClass: MpcheckoutPlugin
