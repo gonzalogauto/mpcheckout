@@ -1,3 +1,5 @@
+## 0.1.0
+- chore: add new example screenshot and use new funding parameter
 ## 1.1.0
 
 ### BREAKING CHANGE
