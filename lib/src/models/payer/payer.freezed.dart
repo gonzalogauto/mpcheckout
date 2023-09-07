@@ -20,9 +20,9 @@ Payer _$PayerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Payer {
+  String get email => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get surname => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
   String? get dateCreated => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $PayerCopyWith<$Res> {
   factory $PayerCopyWith(Payer value, $Res Function(Payer) then) =
       _$PayerCopyWithImpl<$Res, Payer>;
   @useResult
-  $Res call({String? name, String? surname, String email, String? dateCreated});
+  $Res call({String email, String? name, String? surname, String? dateCreated});
 }
 
 /// @nodoc
@@ -51,12 +51,16 @@ class _$PayerCopyWithImpl<$Res, $Val extends Payer>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? email = null,
     Object? name = freezed,
     Object? surname = freezed,
-    Object? email = null,
     Object? dateCreated = freezed,
   }) {
     return _then(_value.copyWith(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -65,10 +69,6 @@ class _$PayerCopyWithImpl<$Res, $Val extends Payer>
           ? _value.surname
           : surname // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
       dateCreated: freezed == dateCreated
           ? _value.dateCreated
           : dateCreated // ignore: cast_nullable_to_non_nullable
@@ -83,7 +83,7 @@ abstract class _$$_PayerCopyWith<$Res> implements $PayerCopyWith<$Res> {
       __$$_PayerCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? name, String? surname, String email, String? dateCreated});
+  $Res call({String email, String? name, String? surname, String? dateCreated});
 }
 
 /// @nodoc
@@ -95,12 +95,16 @@ class __$$_PayerCopyWithImpl<$Res> extends _$PayerCopyWithImpl<$Res, _$_Payer>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? email = null,
     Object? name = freezed,
     Object? surname = freezed,
-    Object? email = null,
     Object? dateCreated = freezed,
   }) {
     return _then(_$_Payer(
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -109,10 +113,6 @@ class __$$_PayerCopyWithImpl<$Res> extends _$PayerCopyWithImpl<$Res, _$_Payer>
           ? _value.surname
           : surname // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
       dateCreated: freezed == dateCreated
           ? _value.dateCreated
           : dateCreated // ignore: cast_nullable_to_non_nullable
@@ -124,23 +124,23 @@ class __$$_PayerCopyWithImpl<$Res> extends _$PayerCopyWithImpl<$Res, _$_Payer>
 /// @nodoc
 @JsonSerializable()
 class _$_Payer implements _Payer {
-  _$_Payer({this.name, this.surname, required this.email, this.dateCreated});
+  _$_Payer({required this.email, this.name, this.surname, this.dateCreated});
 
   factory _$_Payer.fromJson(Map<String, dynamic> json) =>
       _$$_PayerFromJson(json);
 
   @override
+  final String email;
+  @override
   final String? name;
   @override
   final String? surname;
-  @override
-  final String email;
   @override
   final String? dateCreated;
 
   @override
   String toString() {
-    return 'Payer(name: $name, surname: $surname, email: $email, dateCreated: $dateCreated)';
+    return 'Payer(email: $email, name: $name, surname: $surname, dateCreated: $dateCreated)';
   }
 
   @override
@@ -148,9 +148,9 @@ class _$_Payer implements _Payer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Payer &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.surname, surname) || other.surname == surname) &&
-            (identical(other.email, email) || other.email == email) &&
             (identical(other.dateCreated, dateCreated) ||
                 other.dateCreated == dateCreated));
   }
@@ -158,7 +158,7 @@ class _$_Payer implements _Payer {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, surname, email, dateCreated);
+      Object.hash(runtimeType, email, name, surname, dateCreated);
 
   @JsonKey(ignore: true)
   @override
@@ -176,19 +176,19 @@ class _$_Payer implements _Payer {
 
 abstract class _Payer implements Payer {
   factory _Payer(
-      {final String? name,
+      {required final String email,
+      final String? name,
       final String? surname,
-      required final String email,
       final String? dateCreated}) = _$_Payer;
 
   factory _Payer.fromJson(Map<String, dynamic> json) = _$_Payer.fromJson;
 
   @override
+  String get email;
+  @override
   String? get name;
   @override
   String? get surname;
-  @override
-  String get email;
   @override
   String? get dateCreated;
   @override

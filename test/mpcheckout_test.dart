@@ -4,17 +4,18 @@ import 'package:mpcheckout/mpcheckout.dart';
 
 void main() {
   const channel = MethodChannel('mpcheckout');
-
   TestWidgetsFlutterBinding.ensureInitialized();
+  final tester =
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
 
   setUp(() {
-    channel.setMockMethodCallHandler((MethodCall methodCall) async {
+    tester.setMockMethodCallHandler(channel, (MethodCall methodCall) async {
       return '42';
     });
   });
 
   tearDown(() {
-    channel.setMockMethodCallHandler(null);
+    tester.setMockMethodCallHandler(channel, null);
   });
 
   test('getPlatformVersion', () async {

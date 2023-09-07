@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
@@ -45,8 +46,8 @@ class Mpcheckout {
 
   /// [platformVersion] getter
   static Future<String?> get platformVersion async {
-    final version = await _channel.invokeMethod('getPlatformVersion');
-    return version as String?;
+    final version = await _channel.invokeMethod<String>('getPlatformVersion');
+    return version;
   }
 
   /// First this create a Preference in mercadopago endpoint
@@ -56,6 +57,11 @@ class Mpcheckout {
     Preference pref,
   ) async {
     try {
+      if (Platform.isIOS) {
+        throw Exception(
+          'IOS platform is not supported by this package see https://github.com/gonzalogauto/mpcheckout/issues/17',
+        );
+      }
       final url = Uri.parse('$_apiUrl/checkout/preferences');
 
       final headers = {
@@ -87,7 +93,9 @@ class Mpcheckout {
         },
       );
       if (result == null) throw Exception('startCheckout result is null');
-      return CheckoutResult.fromMap(data: result);
+      return CheckoutResult.fromJson(result);
+    } on Exception {
+      rethrow;
     } catch (exception, stackTrace) {
       throw MpException.unknown(
         exception: exception,

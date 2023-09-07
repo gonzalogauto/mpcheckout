@@ -8,11 +8,11 @@ part of 'preference.dart';
 
 _$_Preference _$$_PreferenceFromJson(Map<String, dynamic> json) =>
     _$_Preference(
-      additionalInfo: json['additional_info'] as String?,
-      externalReference: json['external_reference'] as String?,
       items: (json['items'] as List<dynamic>)
           .map((e) => Item.fromJson(e as Map<String, dynamic>))
           .toList(),
+      additionalInfo: json['additional_info'] as String?,
+      externalReference: json['external_reference'] as String?,
       paymentMethods: json['payment_methods'] == null
           ? null
           : PaymentMethods.fromJson(
@@ -29,9 +29,9 @@ _$_Preference _$$_PreferenceFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_PreferenceToJson(_$_Preference instance) =>
     <String, dynamic>{
+      'items': instance.items,
       'additional_info': instance.additionalInfo,
       'external_reference': instance.externalReference,
-      'items': instance.items,
       'payment_methods': instance.paymentMethods,
       'notification_url': instance.notificationUrl,
       'payer': instance.payer,

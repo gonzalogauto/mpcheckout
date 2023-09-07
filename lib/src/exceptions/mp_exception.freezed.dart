@@ -19,19 +19,19 @@ mixin _$MpException {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) preference,
-    required TResult Function(Object? exception, StackTrace stackTrace) unknown,
+    required TResult Function(StackTrace stackTrace, Object? exception) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message)? preference,
-    TResult? Function(Object? exception, StackTrace stackTrace)? unknown,
+    TResult? Function(StackTrace stackTrace, Object? exception)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? preference,
-    TResult Function(Object? exception, StackTrace stackTrace)? unknown,
+    TResult Function(StackTrace stackTrace, Object? exception)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,7 +139,7 @@ class _$_PreferenceError implements _PreferenceError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) preference,
-    required TResult Function(Object? exception, StackTrace stackTrace) unknown,
+    required TResult Function(StackTrace stackTrace, Object? exception) unknown,
   }) {
     return preference(message);
   }
@@ -148,7 +148,7 @@ class _$_PreferenceError implements _PreferenceError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message)? preference,
-    TResult? Function(Object? exception, StackTrace stackTrace)? unknown,
+    TResult? Function(StackTrace stackTrace, Object? exception)? unknown,
   }) {
     return preference?.call(message);
   }
@@ -157,7 +157,7 @@ class _$_PreferenceError implements _PreferenceError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? preference,
-    TResult Function(Object? exception, StackTrace stackTrace)? unknown,
+    TResult Function(StackTrace stackTrace, Object? exception)? unknown,
     required TResult orElse(),
   }) {
     if (preference != null) {
@@ -214,7 +214,7 @@ abstract class _$$_UnknownErrorCopyWith<$Res> {
           _$_UnknownError value, $Res Function(_$_UnknownError) then) =
       __$$_UnknownErrorCopyWithImpl<$Res>;
   @useResult
-  $Res call({Object? exception, StackTrace stackTrace});
+  $Res call({StackTrace stackTrace, Object? exception});
 }
 
 /// @nodoc
@@ -228,15 +228,15 @@ class __$$_UnknownErrorCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? exception = freezed,
     Object? stackTrace = null,
+    Object? exception = freezed,
   }) {
     return _then(_$_UnknownError(
-      exception: freezed == exception ? _value.exception : exception,
       stackTrace: null == stackTrace
           ? _value.stackTrace
           : stackTrace // ignore: cast_nullable_to_non_nullable
               as StackTrace,
+      exception: freezed == exception ? _value.exception : exception,
     ));
   }
 }
@@ -244,16 +244,16 @@ class __$$_UnknownErrorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_UnknownError implements _UnknownError {
-  _$_UnknownError({this.exception, required this.stackTrace});
+  _$_UnknownError({required this.stackTrace, this.exception});
 
   @override
-  final Object? exception;
-  @override
   final StackTrace stackTrace;
+  @override
+  final Object? exception;
 
   @override
   String toString() {
-    return 'MpException.unknown(exception: $exception, stackTrace: $stackTrace)';
+    return 'MpException.unknown(stackTrace: $stackTrace, exception: $exception)';
   }
 
   @override
@@ -261,14 +261,14 @@ class _$_UnknownError implements _UnknownError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UnknownError &&
-            const DeepCollectionEquality().equals(other.exception, exception) &&
             (identical(other.stackTrace, stackTrace) ||
-                other.stackTrace == stackTrace));
+                other.stackTrace == stackTrace) &&
+            const DeepCollectionEquality().equals(other.exception, exception));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(exception), stackTrace);
+      runtimeType, stackTrace, const DeepCollectionEquality().hash(exception));
 
   @JsonKey(ignore: true)
   @override
@@ -280,29 +280,29 @@ class _$_UnknownError implements _UnknownError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) preference,
-    required TResult Function(Object? exception, StackTrace stackTrace) unknown,
+    required TResult Function(StackTrace stackTrace, Object? exception) unknown,
   }) {
-    return unknown(exception, stackTrace);
+    return unknown(stackTrace, exception);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message)? preference,
-    TResult? Function(Object? exception, StackTrace stackTrace)? unknown,
+    TResult? Function(StackTrace stackTrace, Object? exception)? unknown,
   }) {
-    return unknown?.call(exception, stackTrace);
+    return unknown?.call(stackTrace, exception);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? preference,
-    TResult Function(Object? exception, StackTrace stackTrace)? unknown,
+    TResult Function(StackTrace stackTrace, Object? exception)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
-      return unknown(exception, stackTrace);
+      return unknown(stackTrace, exception);
     }
     return orElse();
   }
@@ -341,11 +341,11 @@ class _$_UnknownError implements _UnknownError {
 
 abstract class _UnknownError implements MpException {
   factory _UnknownError(
-      {final Object? exception,
-      required final StackTrace stackTrace}) = _$_UnknownError;
+      {required final StackTrace stackTrace,
+      final Object? exception}) = _$_UnknownError;
 
-  Object? get exception;
   StackTrace get stackTrace;
+  Object? get exception;
   @JsonKey(ignore: true)
   _$$_UnknownErrorCopyWith<_$_UnknownError> get copyWith =>
       throw _privateConstructorUsedError;

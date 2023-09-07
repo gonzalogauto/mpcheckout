@@ -20,13 +20,13 @@ Item _$ItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Item {
+  int get quantity => throw _privateConstructorUsedError;
+  num get unitPrice => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get pictureUrl => throw _privateConstructorUsedError;
   String? get categoryId => throw _privateConstructorUsedError;
-  int get quantity => throw _privateConstructorUsedError;
   String? get currencyId => throw _privateConstructorUsedError;
-  num get unitPrice => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,13 +39,13 @@ abstract class $ItemCopyWith<$Res> {
       _$ItemCopyWithImpl<$Res, Item>;
   @useResult
   $Res call(
-      {String? title,
+      {int quantity,
+      num unitPrice,
+      String? title,
       String? description,
       String? pictureUrl,
       String? categoryId,
-      int quantity,
-      String? currencyId,
-      num unitPrice});
+      String? currencyId});
 }
 
 /// @nodoc
@@ -61,15 +61,23 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? quantity = null,
+    Object? unitPrice = null,
     Object? title = freezed,
     Object? description = freezed,
     Object? pictureUrl = freezed,
     Object? categoryId = freezed,
-    Object? quantity = null,
     Object? currencyId = freezed,
-    Object? unitPrice = null,
   }) {
     return _then(_value.copyWith(
+      quantity: null == quantity
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
+      unitPrice: null == unitPrice
+          ? _value.unitPrice
+          : unitPrice // ignore: cast_nullable_to_non_nullable
+              as num,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -86,18 +94,10 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
               as String?,
-      quantity: null == quantity
-          ? _value.quantity
-          : quantity // ignore: cast_nullable_to_non_nullable
-              as int,
       currencyId: freezed == currencyId
           ? _value.currencyId
           : currencyId // ignore: cast_nullable_to_non_nullable
               as String?,
-      unitPrice: null == unitPrice
-          ? _value.unitPrice
-          : unitPrice // ignore: cast_nullable_to_non_nullable
-              as num,
     ) as $Val);
   }
 }
@@ -109,13 +109,13 @@ abstract class _$$_ItemCopyWith<$Res> implements $ItemCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? title,
+      {int quantity,
+      num unitPrice,
+      String? title,
       String? description,
       String? pictureUrl,
       String? categoryId,
-      int quantity,
-      String? currencyId,
-      num unitPrice});
+      String? currencyId});
 }
 
 /// @nodoc
@@ -127,15 +127,23 @@ class __$$_ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res, _$_Item>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? quantity = null,
+    Object? unitPrice = null,
     Object? title = freezed,
     Object? description = freezed,
     Object? pictureUrl = freezed,
     Object? categoryId = freezed,
-    Object? quantity = null,
     Object? currencyId = freezed,
-    Object? unitPrice = null,
   }) {
     return _then(_$_Item(
+      quantity: null == quantity
+          ? _value.quantity
+          : quantity // ignore: cast_nullable_to_non_nullable
+              as int,
+      unitPrice: null == unitPrice
+          ? _value.unitPrice
+          : unitPrice // ignore: cast_nullable_to_non_nullable
+              as num,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -152,18 +160,10 @@ class __$$_ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res, _$_Item>
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
               as String?,
-      quantity: null == quantity
-          ? _value.quantity
-          : quantity // ignore: cast_nullable_to_non_nullable
-              as int,
       currencyId: freezed == currencyId
           ? _value.currencyId
           : currencyId // ignore: cast_nullable_to_non_nullable
               as String?,
-      unitPrice: null == unitPrice
-          ? _value.unitPrice
-          : unitPrice // ignore: cast_nullable_to_non_nullable
-              as num,
     ));
   }
 }
@@ -172,16 +172,20 @@ class __$$_ItemCopyWithImpl<$Res> extends _$ItemCopyWithImpl<$Res, _$_Item>
 @JsonSerializable()
 class _$_Item implements _Item {
   _$_Item(
-      {this.title,
+      {required this.quantity,
+      required this.unitPrice,
+      this.title,
       this.description,
       this.pictureUrl,
       this.categoryId,
-      required this.quantity,
-      this.currencyId,
-      required this.unitPrice});
+      this.currencyId});
 
   factory _$_Item.fromJson(Map<String, dynamic> json) => _$$_ItemFromJson(json);
 
+  @override
+  final int quantity;
+  @override
+  final num unitPrice;
   @override
   final String? title;
   @override
@@ -191,15 +195,11 @@ class _$_Item implements _Item {
   @override
   final String? categoryId;
   @override
-  final int quantity;
-  @override
   final String? currencyId;
-  @override
-  final num unitPrice;
 
   @override
   String toString() {
-    return 'Item(title: $title, description: $description, pictureUrl: $pictureUrl, categoryId: $categoryId, quantity: $quantity, currencyId: $currencyId, unitPrice: $unitPrice)';
+    return 'Item(quantity: $quantity, unitPrice: $unitPrice, title: $title, description: $description, pictureUrl: $pictureUrl, categoryId: $categoryId, currencyId: $currencyId)';
   }
 
   @override
@@ -207,6 +207,10 @@ class _$_Item implements _Item {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Item &&
+            (identical(other.quantity, quantity) ||
+                other.quantity == quantity) &&
+            (identical(other.unitPrice, unitPrice) ||
+                other.unitPrice == unitPrice) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -214,18 +218,14 @@ class _$_Item implements _Item {
                 other.pictureUrl == pictureUrl) &&
             (identical(other.categoryId, categoryId) ||
                 other.categoryId == categoryId) &&
-            (identical(other.quantity, quantity) ||
-                other.quantity == quantity) &&
             (identical(other.currencyId, currencyId) ||
-                other.currencyId == currencyId) &&
-            (identical(other.unitPrice, unitPrice) ||
-                other.unitPrice == unitPrice));
+                other.currencyId == currencyId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, description, pictureUrl,
-      categoryId, quantity, currencyId, unitPrice);
+  int get hashCode => Object.hash(runtimeType, quantity, unitPrice, title,
+      description, pictureUrl, categoryId, currencyId);
 
   @JsonKey(ignore: true)
   @override
@@ -243,16 +243,20 @@ class _$_Item implements _Item {
 
 abstract class _Item implements Item {
   factory _Item(
-      {final String? title,
+      {required final int quantity,
+      required final num unitPrice,
+      final String? title,
       final String? description,
       final String? pictureUrl,
       final String? categoryId,
-      required final int quantity,
-      final String? currencyId,
-      required final num unitPrice}) = _$_Item;
+      final String? currencyId}) = _$_Item;
 
   factory _Item.fromJson(Map<String, dynamic> json) = _$_Item.fromJson;
 
+  @override
+  int get quantity;
+  @override
+  num get unitPrice;
   @override
   String? get title;
   @override
@@ -262,11 +266,7 @@ abstract class _Item implements Item {
   @override
   String? get categoryId;
   @override
-  int get quantity;
-  @override
   String? get currencyId;
-  @override
-  num get unitPrice;
   @override
   @JsonKey(ignore: true)
   _$$_ItemCopyWith<_$_Item> get copyWith => throw _privateConstructorUsedError;

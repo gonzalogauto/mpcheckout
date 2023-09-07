@@ -11,9 +11,9 @@ part 'preference.g.dart';
 @unfreezed
 class Preference with _$Preference {
   factory Preference({
+    required List<Item> items,
     String? additionalInfo,
     String? externalReference,
-    required List<Item> items,
     PaymentMethods? paymentMethods,
     String? notificationUrl,
     Payer? payer,
