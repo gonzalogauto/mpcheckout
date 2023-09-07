@@ -1,3 +1,4 @@
+/// An unofficial package of MercadoPago Mobile Checkout.
 library mpcheckout;
 
 export 'src/exceptions/mp_exception.dart';
