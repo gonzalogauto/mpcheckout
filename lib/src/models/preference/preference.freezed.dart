@@ -20,12 +20,12 @@ Preference _$PreferenceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Preference {
+  List<Item> get items => throw _privateConstructorUsedError;
+  set items(List<Item> value) => throw _privateConstructorUsedError;
   String? get additionalInfo => throw _privateConstructorUsedError;
   set additionalInfo(String? value) => throw _privateConstructorUsedError;
   String? get externalReference => throw _privateConstructorUsedError;
   set externalReference(String? value) => throw _privateConstructorUsedError;
-  List<Item> get items => throw _privateConstructorUsedError;
-  set items(List<Item> value) => throw _privateConstructorUsedError;
   PaymentMethods? get paymentMethods => throw _privateConstructorUsedError;
   set paymentMethods(PaymentMethods? value) =>
       throw _privateConstructorUsedError;
@@ -51,9 +51,9 @@ abstract class $PreferenceCopyWith<$Res> {
       _$PreferenceCopyWithImpl<$Res, Preference>;
   @useResult
   $Res call(
-      {String? additionalInfo,
+      {List<Item> items,
+      String? additionalInfo,
       String? externalReference,
-      List<Item> items,
       PaymentMethods? paymentMethods,
       String? notificationUrl,
       Payer? payer,
@@ -78,9 +78,9 @@ class _$PreferenceCopyWithImpl<$Res, $Val extends Preference>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? items = null,
     Object? additionalInfo = freezed,
     Object? externalReference = freezed,
-    Object? items = null,
     Object? paymentMethods = freezed,
     Object? notificationUrl = freezed,
     Object? payer = freezed,
@@ -88,6 +88,10 @@ class _$PreferenceCopyWithImpl<$Res, $Val extends Preference>
     Object? statementDescriptor = freezed,
   }) {
     return _then(_value.copyWith(
+      items: null == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<Item>,
       additionalInfo: freezed == additionalInfo
           ? _value.additionalInfo
           : additionalInfo // ignore: cast_nullable_to_non_nullable
@@ -96,10 +100,6 @@ class _$PreferenceCopyWithImpl<$Res, $Val extends Preference>
           ? _value.externalReference
           : externalReference // ignore: cast_nullable_to_non_nullable
               as String?,
-      items: null == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List<Item>,
       paymentMethods: freezed == paymentMethods
           ? _value.paymentMethods
           : paymentMethods // ignore: cast_nullable_to_non_nullable
@@ -169,9 +169,9 @@ abstract class _$$_PreferenceCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? additionalInfo,
+      {List<Item> items,
+      String? additionalInfo,
       String? externalReference,
-      List<Item> items,
       PaymentMethods? paymentMethods,
       String? notificationUrl,
       Payer? payer,
@@ -197,9 +197,9 @@ class __$$_PreferenceCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? items = null,
     Object? additionalInfo = freezed,
     Object? externalReference = freezed,
-    Object? items = null,
     Object? paymentMethods = freezed,
     Object? notificationUrl = freezed,
     Object? payer = freezed,
@@ -207,6 +207,10 @@ class __$$_PreferenceCopyWithImpl<$Res>
     Object? statementDescriptor = freezed,
   }) {
     return _then(_$_Preference(
+      items: null == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<Item>,
       additionalInfo: freezed == additionalInfo
           ? _value.additionalInfo
           : additionalInfo // ignore: cast_nullable_to_non_nullable
@@ -215,10 +219,6 @@ class __$$_PreferenceCopyWithImpl<$Res>
           ? _value.externalReference
           : externalReference // ignore: cast_nullable_to_non_nullable
               as String?,
-      items: null == items
-          ? _value.items
-          : items // ignore: cast_nullable_to_non_nullable
-              as List<Item>,
       paymentMethods: freezed == paymentMethods
           ? _value.paymentMethods
           : paymentMethods // ignore: cast_nullable_to_non_nullable
@@ -247,9 +247,9 @@ class __$$_PreferenceCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Preference implements _Preference {
   _$_Preference(
-      {this.additionalInfo,
+      {required this.items,
+      this.additionalInfo,
       this.externalReference,
-      required this.items,
       this.paymentMethods,
       this.notificationUrl,
       this.payer,
@@ -260,11 +260,11 @@ class _$_Preference implements _Preference {
       _$$_PreferenceFromJson(json);
 
   @override
+  List<Item> items;
+  @override
   String? additionalInfo;
   @override
   String? externalReference;
-  @override
-  List<Item> items;
   @override
   PaymentMethods? paymentMethods;
   @override
@@ -278,7 +278,7 @@ class _$_Preference implements _Preference {
 
   @override
   String toString() {
-    return 'Preference(additionalInfo: $additionalInfo, externalReference: $externalReference, items: $items, paymentMethods: $paymentMethods, notificationUrl: $notificationUrl, payer: $payer, shipments: $shipments, statementDescriptor: $statementDescriptor)';
+    return 'Preference(items: $items, additionalInfo: $additionalInfo, externalReference: $externalReference, paymentMethods: $paymentMethods, notificationUrl: $notificationUrl, payer: $payer, shipments: $shipments, statementDescriptor: $statementDescriptor)';
   }
 
   @JsonKey(ignore: true)
@@ -297,9 +297,9 @@ class _$_Preference implements _Preference {
 
 abstract class _Preference implements Preference {
   factory _Preference(
-      {String? additionalInfo,
+      {required List<Item> items,
+      String? additionalInfo,
       String? externalReference,
-      required List<Item> items,
       PaymentMethods? paymentMethods,
       String? notificationUrl,
       Payer? payer,
@@ -310,14 +310,14 @@ abstract class _Preference implements Preference {
       _$_Preference.fromJson;
 
   @override
+  List<Item> get items;
+  set items(List<Item> value);
+  @override
   String? get additionalInfo;
   set additionalInfo(String? value);
   @override
   String? get externalReference;
   set externalReference(String? value);
-  @override
-  List<Item> get items;
-  set items(List<Item> value);
   @override
   PaymentMethods? get paymentMethods;
   set paymentMethods(PaymentMethods? value);

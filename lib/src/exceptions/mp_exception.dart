@@ -13,7 +13,7 @@ class MpException with _$MpException implements Exception {
 
   /// [MpException.unknown] exception type
   factory MpException.unknown({
-    Object? exception,
     required StackTrace stackTrace,
+    Object? exception,
   }) = _UnknownError;
 }

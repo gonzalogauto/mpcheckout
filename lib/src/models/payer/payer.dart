@@ -7,9 +7,9 @@ part 'payer.g.dart';
 @freezed
 class Payer with _$Payer {
   factory Payer({
+    required String email,
     String? name,
     String? surname,
-    required String email,
     String? dateCreated,
   }) = _Payer;
 

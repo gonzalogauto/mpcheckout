@@ -7,13 +7,13 @@ part 'item.g.dart';
 @freezed
 class Item with _$Item {
   factory Item({
+    required int quantity,
+    required num unitPrice,
     String? title,
     String? description,
     String? pictureUrl,
     String? categoryId,
-    required int quantity,
     String? currencyId,
-    required num unitPrice,
   }) = _Item;
 
   factory Item.fromJson(Map<String, dynamic> json) => _$ItemFromJson(json);
